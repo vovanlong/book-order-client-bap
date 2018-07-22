@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="card card-container">
+    <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+    <p id="profile-name" class="profile-name-card"></p>
+    <form [formGroup]= "registerForm" (ngSubmit)="submit(registerForm)" class="form-signin">
+      <input type="text" name="name" formControlName="name" id="inputName" class="form-control" placeholder="username" required>
+      <input type="email"name="email" formControlName="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+      <input type="password" name="password" formControlName="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign up</button>
+    </form>
+  </div>
+</div>

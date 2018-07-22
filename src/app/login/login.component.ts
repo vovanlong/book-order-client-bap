@@ -33,9 +33,9 @@ export class LoginComponent implements OnInit {
     submit({ value } : { value: ILogin }) {
         this.loginService.postLogin(value).subscribe(res => {
             this.res = res;
-            console.log(this.res.data)
+            console.log(this.res)
             if(this.res.status == 200) {
-               localStorage.setItem('userToken', this.res.data)
+                localStorage.setItem('userToken', this.res.access_token)
                this.router.navigate(['profile'])
             }
         })
