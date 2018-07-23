@@ -13,7 +13,7 @@ export interface IRegister {
 export interface IBooks{
     message: string,
     is_success: string,
-    book: [IBook]
+    data: IBook[]
 }
 export interface IBook {
     id: number,
@@ -21,7 +21,7 @@ export interface IBook {
     author: string,
     image: string,
     total_reviews: number
-    review: [IReview]
+    review: IReview[]
 }
 export interface IReview {
     id: number,

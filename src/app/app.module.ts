@@ -12,6 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 import { RegisterComponent } from './register/register.component';
 import { RegisterService } from './services/register.service';
+import { BookComponent } from './book/book.component';
+import { BookDetailComponent } from './book/book-detail/book-detail.component';
+import { BookService } from './services/book.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import { RegisterService } from './services/register.service';
     HomeComponent,
     ProfileComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    BookComponent,
+    BookDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +33,7 @@ import { RegisterService } from './services/register.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [LoginService, AuthService, RegisterService],
+  providers: [LoginService, AuthService, RegisterService, BookService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

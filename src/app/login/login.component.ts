@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
             console.log(this.res)
             if(this.res.status == 200) {
                 localStorage.setItem('userToken', this.res.access_token)
-               this.router.navigate(['profile'])
+               this.router.navigate([''])
             }
         })
     }

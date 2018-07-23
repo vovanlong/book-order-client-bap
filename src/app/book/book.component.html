@@ -1,0 +1,17 @@
+<div id="testimonial" class="section">
+  <div class="container">
+    <div class="section-title">
+      <h4>Testimonial</h4>
+      <div class="divider"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-sm-6" *ngFor="let item of data">
+        <div class="testimonial">
+          <img [src]="item.image" alt="">
+          <h5> {{item.author}}</h5>
+          <p>{{item.title}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
