@@ -30,7 +30,6 @@ export class BookComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getBooksFormServices()
     this.getBooksFormService()
   }
 

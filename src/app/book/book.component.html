@@ -7,9 +7,23 @@
     <div class="row">
       <div class="col-md-6 col-sm-6" *ngFor="let item of data">
         <div class="testimonial">
-          <img [src]="item.image" alt="">
+          <img src="http://localhost:3000{{item.image}}" alt="" class="image-books">
           <h5> {{item.author}}</h5>
           <p>{{item.title}}</p>
+          
+          <div class="col-xs-12 col-md-4">
+            <a href="/details/{{item.id}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Detail Book</a>
+          </div>
+          <div class="col-xs-12 col-md-4">
+            <p class="lead">
+              Quantity: {{item.quantity}}
+            </p>
+          </div>
+          <div class="col-xs-12 col-md-4">
+            <p class="lead">
+              Price: {{item.price}}
+            </p>
+          </div>
         </div>
       </div>
     </div>

@@ -1,12 +1,12 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Observable, throwError } from "rxjs";
-import { IBooks, IBook } from "../shared/interface";
+import { IBooks, IBook, IReview } from "../shared/interface";
 import { map, catchError, tap } from "rxjs/operators";
 
 @Injectable()
 export class BookService {
-    apiURL = "https://maxnguyen-api.herokuapp.com/api/v1/"
+    apiURL = "http://localhost:3000/api/v1/"
     constructor(private http: HttpClient){}
 
     getBooks(): Observable<IBooks[]>{
@@ -22,6 +22,24 @@ export class BookService {
     getBook(): Observable<IBook[]> {
         return this.http.get<IBook[]>(this.apiURL + "books").pipe(
             tap(res => {return res})
+        )
+    }
+
+    getDetailBook(id:number): Observable<IBook>{
+        return this.http.get<IBook>(this.apiURL+ "books/"+id)
+        .pipe(
+            tap(res => console.log(`res long = ${JSON.stringify(res)}+ id book ${id}}`))
+        )
+        .pipe(
+                tap(res => console.log(res))
+        )
+
+    }
+
+    getReviewBooks(id:number):Observable<IReview>{
+        return this.http.get<IReview>(this.apiURL+ "books/"+id+"/reviews")
+        .pipe(
+            tap(res => console.log(res))
         )
     }
     handleError(error: HttpErrorResponse) {
