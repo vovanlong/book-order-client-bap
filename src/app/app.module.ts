@@ -16,6 +16,7 @@ import { BookComponent } from './book/book.component';
 import { BookDetailComponent } from './book/book-detail/book-detail.component';
 import { BookService } from './services/book.service';
 import { LogoutComponent } from './logout/logout.component';
+import { CreateBooksComponent } from './book/create-books/create-books.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { LogoutComponent } from './logout/logout.component';
     RegisterComponent,
     BookComponent,
     BookDetailComponent,
-    LogoutComponent
+    LogoutComponent,
+    CreateBooksComponent
   ],
   imports: [
     BrowserModule,

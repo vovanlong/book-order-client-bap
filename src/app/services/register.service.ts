@@ -6,7 +6,7 @@ import { map, catchError } from "rxjs/operators";
 
 @Injectable()
 export class RegisterService{
-    apiUrl = "https://maxnguyen-api.herokuapp.com/api/v1/auth";
+    apiUrl = "http://localhost:3000/api/v1/auth";
   constructor(private http: HttpClient){}
   
   postRegister(userRegister: IRegister): Observable<boolean> {

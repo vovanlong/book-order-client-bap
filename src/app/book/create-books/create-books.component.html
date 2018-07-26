@@ -1,0 +1,88 @@
+<form [formGroup] = "createBookForm" (ngSubmit) = "submit(createBookForm)" >
+  <h1>Form create book</h1>
+
+  <div class="contentform">
+    <div id="sendmessage"> Your message has been sent successfully. Thank you. </div>
+
+
+    <div class="leftcontact">
+      <div class="form-group">
+        <p>Name book
+          <span>*</span>
+        </p>
+        <span class="icon-case">
+          <i class="fa fa-male"></i>
+        </span>
+        <input type="text" name="name" id="name" formControlName="name" data-rule="required" data-msg=""/>
+        <div class="validation"></div>
+      </div>
+
+      <div class="form-group">
+        <p>Title book
+          <span>*</span>
+        </p>
+        <span class="icon-case">
+          <i class="fa fa-user"></i>
+        </span>
+        <input type="text" name="title" formControlName="title" id="title" data-rule="required" data-msg=""/>
+        <div class="validation"></div>
+      </div>
+     
+      <div class="form-group">
+        <p>Author book
+          <span>*</span>
+        </p>
+        <span class="icon-case">
+          <i class="fa fa-home"></i>
+        </span>
+        <input type="text" name="author" formControlName="author" id="author" data-rule="required" data-msg=""/>
+        <div class="validation"></div>
+      </div>
+
+      <div class="form-group">
+        <p>Price book
+          <span>*</span>
+        </p>
+        <span class="icon-case">
+          <i class="fa fa-home"></i>
+        </span>
+        <input type="text" name="price" formControlName="price" id="price" data-rule="required" data-msg="" />
+        <div class="validation"></div>
+      </div>
+    </div>
+    <div class="rightcontact">
+      <div class="form-group">
+        <p>Quantity book
+          <span>*</span>
+        </p>
+        <span class="icon-case">
+          <i class="fa fa-building-o"></i>
+        </span>
+        <input type="text" name="quantity" formControlName="quantity" id="quantity" data-rule="required" data-msg=""
+        />
+        <div class="validation"></div>
+      </div>
+      <div class="form-group">
+        <p>image book
+          <span>*</span>
+        </p>
+        <span class="icon-case">
+          <i class="fa fa-building-o"></i>
+        </span>
+        <input type="file" name="image" id="file" formControlName="image"  class="form-control-file" id="exampleFormControlFile1">
+      </div>
+      <div class="form-group">
+        <p>Content book
+          <span>*</span>
+        </p>
+        <span class="icon-case">
+          <i class="fa fa-comments-o"></i>
+        </span>
+        <textarea name="content" rows="14" formControlName="content" data-rule="required" data-msg=""></textarea>
+        <div class="validation"></div>
+      </div>
+    </div>
+  </div>
+  <button type="submit"  class="bouton-contact">Send</button>
+
+</form>

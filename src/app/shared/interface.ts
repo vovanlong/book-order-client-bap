@@ -30,3 +30,14 @@ export interface IReview {
     recommend_rating: number,
     average_rating: number
 }
+
+export interface ICreateBook{
+    id: number;
+    name: string;
+    title: string;
+    content: string;
+    author: string;
+    price: number;
+    quantity:number;
+    image: string
+}

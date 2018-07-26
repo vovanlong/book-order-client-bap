@@ -1,13 +1,14 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
 import { Observable, throwError } from "rxjs";
-import { IBooks, IBook, IReview } from "../shared/interface";
+import { IBooks, IBook, IReview, ICreateBook } from "../shared/interface";
 import { map, catchError, tap } from "rxjs/operators";
 
 @Injectable()
 export class BookService {
     apiURL = "http://localhost:3000/api/v1/"
     constructor(private http: HttpClient){}
+    
 
     getBooks(): Observable<IBooks[]>{
         return this.http.get<IBooks[]>(this.apiURL + "books")
@@ -24,6 +25,25 @@ export class BookService {
             tap(res => {return res})
         )
     }
+
+    postCreateBook(createBook: ICreateBook): Observable<boolean>{
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': localStorage.getItem('userToken')
+            })
+        };
+        return this.http.post<boolean>(this.apiURL + "books", createBook, httpOptions)
+         .pipe(
+             map(
+                 res => {
+                     return res;
+                 }
+             ),
+             catchError(this.handleError)
+         )
+    }
+
 
     getDetailBook(id:number): Observable<IBook>{
         return this.http.get<IBook>(this.apiURL+ "books/"+id)
