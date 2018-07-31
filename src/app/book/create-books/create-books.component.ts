@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BookService } from '../../services/book.service';
 import { ICreateBook } from '../../shared/interface';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-books',
@@ -11,42 +12,21 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CreateBooksComponent implements OnInit {
   res: any;
-  // files: any[];
-  // selectedFile: File = null
   createBookForm: FormGroup
   constructor(
     private formBuilder: FormBuilder,
     private bookservice: BookService,
-    // private http: HttpClient
-  ) {
-    // this.files = []
-   }
-  // onFileSelected(event:any){
-    
-  //   this.selectedFile =<File>event.target.file[0]
-  //   console.log("vovanlong"+this.selectedFile)
-  // }
+    private router: Router
+  ) {}
 
-  // onUpload(){
-  //   const fd = new FormData();
-  //   fd.append('image', this.selectedFile, this.selectedFile.name)
-  //   this.http.post("http://localhost:3000/api/v1/books",fd, {
-  //     reportProgress:true,
-  //     observe: 'events',
-  //   }).subscribe(events =>{
-     
-  //     console.log(events)
-  //   })
-  // }
   buildForm(){
     this.createBookForm = this.formBuilder.group({
-      name: [''],
-      title: [''],
-      content: [''],
-      author: [''],
-      price: [''],
-      quantity: [''],
-      image: [''],
+      name: ['', Validators.required],
+      title: ['', Validators.required],
+      content: ['',Validators.required],
+      author: ['',Validators.required],
+      price: ['', Validators.required],
+      quantity: ['', Validators.required],
     })
   }
 
@@ -54,6 +34,11 @@ export class CreateBooksComponent implements OnInit {
     this.bookservice.postCreateBook(value).subscribe(res => {
       this.res = res;
       console.log(res)
+      if (this.res.is_success == true){
+        this.router.navigate([''])
+      }else{
+        this.router.navigate(['/books'])
+      }
     })
   }
   ngOnInit() {

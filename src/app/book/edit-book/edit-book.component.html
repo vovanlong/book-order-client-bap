@@ -1,0 +1,92 @@
+<form >
+  <h1>Form edit book</h1>
+  <div class="error-msg"  *ngIf="errors">
+    <i class="fa fa-times-circle"></i>
+     {{errors.attribute}}&nbsp; {{errors.reason}}
+  </div>
+  
+  <div *ngIf="book" class="contentform" >
+    <div id="sendmessage"> Your message has been sent successfully. Thank you. </div>
+
+
+    <div   class="leftcontact">
+      <div class="form-group">
+        <p>Name book
+          <span>*</span>
+        </p>
+        <span class="icon-case">
+          <i class="fa fa-male"></i>
+        </span>
+        <input type="text" name="name" [(ngModel)]="book.name"  value="{{book.name}}" id="name"  data-rule="required" data-msg="" />
+        <div class="validation"></div>
+      </div>
+      
+      <div class="form-group">
+        <p>Title book
+          <span>*</span>
+        </p>
+        <span class="icon-case">
+          <i class="fa fa-user"></i>
+        </span>
+        <input type="text" name="title" [(ngModel)]="book.title" value="{{book.title}}"  id="title" data-rule="required" data-msg="" />
+        <div class="validation"></div>
+      </div>
+
+      <div class="form-group">
+        <p>Author book
+          <span>*</span>
+        </p>
+        <span class="icon-case">
+          <i class="fa fa-home"></i>
+        </span>
+        <input type="text" name="author" [(ngModel)]="book.author" value="{{book.author}}"   id="author" data-rule="required" data-msg="" />
+        <div class="validation"></div>
+      </div>
+
+      <div class="form-group">
+        <p>Price book
+          <span>*</span>
+        </p>
+        <span class="icon-case">
+          <i class="fa fa-home"></i>
+        </span>
+        <input type="text" name="price" [(ngModel)]="book.price" value="{{book.price}}" id="price" id="price" data-rule="required" data-msg="" />
+        <div class="validation"></div>
+      </div>
+    </div>
+    <div class="rightcontact">
+      <div class="form-group">
+        <p>Quantity book
+          <span>*</span>
+        </p>
+        <span class="icon-case">
+          <i class="fa fa-building-o"></i>
+        </span>
+        <input type="text" name="quantity" [(ngModel)]="book.quantity" value="{{book.quantity}}"  id="quantity" data-rule="required" data-msg="" />
+        <div class="validation"></div>
+      </div>
+      <div class="form-group">
+        <p>image book
+          <span>*</span>
+        </p>
+        <span class="icon-case">
+          <i class="fa fa-building-o"></i>
+        </span>
+        <input type="file" name="image" id="file"  class="form-control-file" id="exampleFormControlFile1">
+        <img src="http://localhost:3000{{book.image}}" alt="">
+      </div>
+      <div class="form-group">
+        <p>Content book
+          <span>*</span>
+        </p>
+        <span class="icon-case">
+          <i class="fa fa-comments-o"></i>
+        </span>
+        <textarea name="content" rows="14"  [(ngModel)]="book.content"  data-rule="required" data-msg="">{{book.content}}</textarea>
+        <div class="validation"></div>
+      </div>
+    </div>
+  </div>
+  <button (click)="save()" class="bouton-contact">update</button>
+  <button (click)="goBack()" class="bouton-contact">Back</button>
+</form>

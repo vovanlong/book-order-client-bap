@@ -14,9 +14,15 @@
           <i class="fa fa-male"></i>
         </span>
         <input type="text" name="name" id="name" formControlName="name" data-rule="required" data-msg=""/>
-        <div class="validation"></div>
+        <div class="validation">
+          
+        </div>
+        
       </div>
-
+      <div class="alert alert-danger" *ngIf="!createBookForm.controls['name'].valid && createBookForm.controls['name'].touched"
+        role="alert">
+        Name required!
+      </div>
       <div class="form-group">
         <p>Title book
           <span>*</span>
@@ -27,7 +33,10 @@
         <input type="text" name="title" formControlName="title" id="title" data-rule="required" data-msg=""/>
         <div class="validation"></div>
       </div>
-     
+      <div class="alert alert-danger" *ngIf="!createBookForm.controls['title'].valid && createBookForm.controls['title'].touched"
+        role="alert">
+        Title required!
+      </div>
       <div class="form-group">
         <p>Author book
           <span>*</span>
@@ -38,7 +47,10 @@
         <input type="text" name="author" formControlName="author" id="author" data-rule="required" data-msg=""/>
         <div class="validation"></div>
       </div>
-
+      <div class="alert alert-danger" *ngIf="!createBookForm.controls['author'].valid && createBookForm.controls['author'].touched"
+        role="alert">
+         Author required!
+      </div>
       <div class="form-group">
         <p>Price book
           <span>*</span>
@@ -48,6 +60,10 @@
         </span>
         <input type="text" name="price" formControlName="price" id="price" data-rule="required" data-msg="" />
         <div class="validation"></div>
+      </div>
+      <div class="alert alert-danger" *ngIf="!createBookForm.controls['price'].valid && createBookForm.controls['price'].touched"
+        role="alert">
+        Price required!
       </div>
     </div>
     <div class="rightcontact">
@@ -61,6 +77,11 @@
         <input type="text" name="quantity" formControlName="quantity" id="quantity" data-rule="required" data-msg=""
         />
         <div class="validation"></div>
+        
+      </div>
+      <div class="alert alert-danger" *ngIf="!createBookForm.controls['quantity'].valid && createBookForm.controls['quantity'].touched"
+        role="alert">
+        Quantity required!
       </div>
       <div class="form-group">
         <p>image book
@@ -69,7 +90,7 @@
         <span class="icon-case">
           <i class="fa fa-building-o"></i>
         </span>
-        <input type="file" name="image" id="file" formControlName="image"  class="form-control-file" id="exampleFormControlFile1">
+        <input type="file" name="image" id="file"  class="form-control-file" id="exampleFormControlFile1">
       </div>
       <div class="form-group">
         <p>Content book
@@ -80,6 +101,10 @@
         </span>
         <textarea name="content" rows="14" formControlName="content" data-rule="required" data-msg=""></textarea>
         <div class="validation"></div>
+      </div>
+      <div class="alert alert-danger" *ngIf="!createBookForm.controls['content'].valid && createBookForm.controls['content'].touched"
+        role="alert">
+         Content required!
       </div>
     </div>
   </div>

@@ -4,8 +4,18 @@
     <p id="profile-name" class="profile-name-card"></p>
     <form [formGroup]= "registerForm" (ngSubmit)="submit(registerForm)" class="form-signin">
       <input type="text" name="name" formControlName="name" id="inputName" class="form-control" placeholder="username" required>
+      <div class="alert alert-danger" *ngIf="!registerForm.controls['name'].valid && registerForm.controls['name'].touched" role="alert">
+        Name required!
+      </div>
       <input type="email"name="email" formControlName="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+      <div class="alert alert-danger" *ngIf="!registerForm.controls['email'].valid && registerForm.controls['email'].touched" role="alert">
+        Email required!
+      </div>
       <input type="password" name="password" formControlName="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <div class="alert alert-danger" *ngIf="!registerForm.controls['password'].valid && registerForm.controls['password'].touched"
+        role="alert">
+        Email required!
+      </div>
       <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign up</button>
     </form>
   </div>

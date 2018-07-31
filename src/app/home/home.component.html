@@ -18,14 +18,14 @@
 						<a href="index.html">Home</a>
 					</li>
 					
-					<li>
-						<a  routerLink="/login">Login</a>
+					<li *ngIf="!token">
+						<a routerLink="/login">Login</a>
 					</li>
 					<li>
 						<a routerLink="/register">Register</a>
 					</li>
 					<li>
-						<a routerLink="/logout" >Logout</a>
+						<a *ngIf="token" routerLink="/logout" >Logout</a>
 					</li>
 					<li>
 						<a href="#testimonial">Testimonial</a>
@@ -37,100 +37,8 @@
 			</div>
 		</div>
 	</nav>
-	<!-- end navbar -->
-
-	<!-- banner -->
-	<div class="banner">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-5 col-sm-5">
-					<div class="banner-content2">
-						<img src="img/book.jpg" alt="" class="img-responsive">
-					</div>
-				</div>
-				<div class="col-md-7 col-sm-7">
-					<div class="banner-content">
-						<h1>EBOOK BUSINESS SUCCES</h1>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum doloremque autem quasi perferendis tempora nisi cum
-							accusamus asperiores aspernatur laudantium quod alias nobis libero illo rerum, eaque dolores nihil nemo.</p>
-						<ul>
-							<li>
-								<a href="">Learn More</a>
-							</li>
-							<li>
-								<a href="">Buy Now</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end banner -->
-
 </header>
-<!-- end header -->
-
-
-
-
-
-
-
-
-<!-- testimonial -->
 <app-book></app-book>
-<!-- end testimonial -->
-
-<!-- contact -->
-<div id="contact" class="section">
-	<div class="container">
-		<div class="section-title">
-			<h4>Send Us A Message</h4>
-			<div class="divider"></div>
-		</div>
-		<form>
-			<div class="row">
-				<div class="col-md-4 col-md-4">
-					<div class="contact">
-						<div class="form-group">
-							<input type="text" placeholder="Name">
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 col-md-4">
-					<div class="contact">
-						<div class="form-group">
-							<input type="email" placeholder="Email">
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 col-md-4">
-					<div class="contact">
-						<div class="form-group">
-							<input type="text" placeholder="Subject">
-						</div>
-					</div>
-				</div>
-			</div>
-		</form>
-		<div class="row">
-			<div class="col-sm-12 col-md-12">
-				<div class="contact">
-					<div class="form-group">
-						<textarea cols="30" rows="10" placeholder="Your Message"></textarea>
-					</div>
-					<div class="form-group">
-						<button class="btn button-default" type="button">Send Message</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- end contact -->
-
-<!-- footer -->
 <footer class="section">
 	<div class="container">
 		<ul>
@@ -160,14 +68,12 @@
 				</a>
 			</li>
 		</ul>
+
+
 	</div>
 </footer>
-<!-- end footer -->
-
-<!-- scroll to top -->
 <div class="toTop">
 	<a href="#top" id="toTop">
 		<i class="fa fa-arrow-circle-up"></i>
 	</a>
 </div>
-

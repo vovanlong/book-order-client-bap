@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
-import { Observable, throwError } from "rxjs";
+import { Observable, throwError, of } from "rxjs";
 import { IBooks, IBook, IReview, ICreateBook } from "../shared/interface";
 import { map, catchError, tap } from "rxjs/operators";
+import { error } from "util";
 
 @Injectable()
 export class BookService {
@@ -60,6 +61,34 @@ export class BookService {
         return this.http.get<IReview>(this.apiURL+ "books/"+id+"/reviews")
         .pipe(
             tap(res => console.log(res))
+        )
+    }
+
+    updateBook(id:number,book: ICreateBook): Observable<any>{
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': localStorage.getItem('userToken'),
+            })
+        };
+        return this.http.put(this.apiURL+"books/" + id, book,httpOptions).pipe(
+            tap(updateBook => console.log(`updated book= ${JSON.stringify(updateBook)}`)),
+            catchError(this.handleError)
+        ); 
+    }
+
+    deleteBook(id: number): Observable<any>{
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': localStorage.getItem('userToken'),
+            })
+        };
+        return this.http.delete<any>(this.apiURL + "books/" + id,httpOptions).pipe(
+            tap(
+                deleteBook => console.log(`delte book ${JSON.stringify(deleteBook)}`),
+                catchError(this.handleError)
+            )
         )
     }
     handleError(error: HttpErrorResponse) {
