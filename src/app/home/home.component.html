@@ -1,43 +1,5 @@
 <div id="fakeLoader"></div>
-  <header>
-	<nav class="navbar navbar-default navbar-eb">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar">
-					<span class="sr-only"></span>
-					<i class="fa fa-bars"></i>
-				</button>
-				<a href="" class="navbar-brand">
-					<h1>
-						<span>E</span>book</h1>
-				</a>
-			</div>
-			<div class="collapse navbar-collapse n-link" id="bs-navbar">
-				<ul class="nav navbar-nav navbar-right">
-					<li>
-						<a href="index.html">Home</a>
-					</li>
-					
-					<li *ngIf="!token">
-						<a routerLink="/login">Login</a>
-					</li>
-					<li>
-						<a routerLink="/register">Register</a>
-					</li>
-					<li>
-						<a *ngIf="token" routerLink="/logout" >Logout</a>
-					</li>
-					<li>
-						<a href="#testimonial">Testimonial</a>
-					</li>
-					<li>
-						<a href="#contact">Contact</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-</header>
+<app-header></app-header>
 <app-book></app-book>
 <footer class="section">
 	<div class="container">

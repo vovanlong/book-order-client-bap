@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BookService } from '../../services/book.service';
-import { IBook, IBooks, IReview } from '../../shared/interface';
+import { IBook, IBooks, IReview, IOders, Quantity } from '../../shared/interface';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { OrderService } from '../../services/order.service';
 
 @Component({
   selector: 'app-book-detail',
@@ -16,10 +18,18 @@ export class BookDetailComponent implements OnInit {
   reviews: any;
   user:any;
   image: any;
-  
-  constructor(private route: ActivatedRoute, private bookservice: BookService) {
-   
-   }
+  error: any;
+  orderForm: FormGroup;
+  quantity_client: Quantity= {
+    quantity: 1
+  }
+  constructor(private route: ActivatedRoute, 
+            private bookservice: BookService,
+            private formBuilder: FormBuilder,
+            private orderservice: OrderService,
+             private router: Router
+            ) 
+            {}
   
   getBookFormRoute(): void{
     const id = +this.route.snapshot.paramMap.get('id')
@@ -33,6 +43,16 @@ export class BookDetailComponent implements OnInit {
     });
   }
 
+  buildForm(){
+    this.orderForm = this.formBuilder.group({
+      receiver_name: ['',Validators.required],
+      receiver_address: ['', Validators.required],
+      receiver_phone: ['',Validators.required],
+      quantity: ['',Validators.required],
+      total_price: ['',Validators.required]
+    })
+  }
+
   getReviewOfBook(): void{
     const id = +this.route.snapshot.paramMap.get('id')
     this.bookservice.getReviewBooks(id).subscribe(res =>{
@@ -44,9 +64,24 @@ export class BookDetailComponent implements OnInit {
     })
   }
 
+  submit({ value }:{value: IOders}){
+    const id = +this.route.snapshot.paramMap.get('id')
+    this.orderservice.postOrder(value, id).subscribe(res=>{
+      this.res = res
+      console.log(this.res)
+      if (this.res.is_success == true){
+        this.router.navigate([''])
+      }
+      if (this.res.status == 404){
+        this.error = res
+      }
+    })
+  }
+  
   ngOnInit() {
     this.getBookFormRoute();
-    this.getReviewOfBook()
+    this.getReviewOfBook();
+    this.buildForm();
   }
 
 }

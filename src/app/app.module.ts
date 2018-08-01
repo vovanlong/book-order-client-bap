@@ -18,6 +18,9 @@ import { BookService } from './services/book.service';
 import { LogoutComponent } from './logout/logout.component';
 import { CreateBooksComponent } from './book/create-books/create-books.component';
 import { EditBookComponent } from './book/edit-book/edit-book.component';
+import { HeaderComponent } from './home/header/header.component';
+import { CartBookComponent } from './book/book-detail/cart-book/cart-book.component';
+import { OrderService } from './services/order.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import { EditBookComponent } from './book/edit-book/edit-book.component';
     BookDetailComponent,
     LogoutComponent,
     CreateBooksComponent,
-    EditBookComponent
+    EditBookComponent,
+    HeaderComponent,
+    CartBookComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,7 @@ import { EditBookComponent } from './book/edit-book/edit-book.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [LoginService, AuthService, RegisterService, BookService],
+  providers: [LoginService, AuthService, RegisterService, BookService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

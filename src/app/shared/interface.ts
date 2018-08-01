@@ -41,3 +41,16 @@ export interface ICreateBook{
     quantity:number;
     image: string
 }
+
+export interface IOders{
+    id:number;
+    receiver_name: string;
+    receiver_address: string;
+    receiver_phone: string;
+    quantity: number;
+    total_price: number
+}
+
+export interface Quantity{
+    quantity:number
+}
