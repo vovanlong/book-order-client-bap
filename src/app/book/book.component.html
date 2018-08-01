@@ -1,7 +1,9 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+  crossorigin="anonymous">
 <div id="author" class="section">
   <div class="container">
     <div class="section-title">
-      <h4>Author</h4>
+      <h4>Book</h4>
       <div class="divider"></div>
     </div>
     <div class="row" id="my-row" *ngFor="let item of data">
@@ -22,17 +24,17 @@
           <ul>
             <li>
               <a href="/details/{{item.id}}">
-                <i class="fa fa-facebook"></i>
+                <i class="fas fa-user-plus"></i>
               </a>
             </li>
             <li>
               <a href="/books/{{item.id}}">
-                <i class="fa fa-twitter"></i>
+              <i class="fas fa-edit"></i>
               </a>
             </li>
             <li>
               <button (click)="delete(item.id)">
-                <i class="fa fa-linkedin"></i>
+                <i class="fas fa-trash-alt"></i>
               </button>
             </li>
           </ul>

@@ -86,7 +86,7 @@ export class BookService {
         };
         return this.http.delete<any>(this.apiURL + "books/" + id,httpOptions).pipe(
             tap(
-                deleteBook => console.log(`delte book ${JSON.stringify(deleteBook)}`),
+                deleteBook => console.log(`delete book ${JSON.stringify(deleteBook)}`),
                 catchError(this.handleError)
             )
         )

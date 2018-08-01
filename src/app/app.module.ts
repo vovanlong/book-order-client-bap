@@ -21,6 +21,8 @@ import { EditBookComponent } from './book/edit-book/edit-book.component';
 import { HeaderComponent } from './home/header/header.component';
 import { CartBookComponent } from './book/book-detail/cart-book/cart-book.component';
 import { OrderService } from './services/order.service';
+import { OrderComponent } from './order/order.component';
+import { ListOrderComponent } from './order/list-order/list-order.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { OrderService } from './services/order.service';
     CreateBooksComponent,
     EditBookComponent,
     HeaderComponent,
-    CartBookComponent
+    CartBookComponent,
+    OrderComponent,
+    ListOrderComponent
   ],
   imports: [
     BrowserModule,
